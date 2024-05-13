@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="google-site-verification" content="ftFOlJETX-2KNjaPh8W6s8lhigItRuu9fOmjHZZ0nY0" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Transferable Adversarial Attacks against ASR</title>
+  </head>
+  <style type="text/css">
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  audio {
+    width: 100%;
+  }
+
+  thead > tr > th:first-child {
+    width: 99px;
+  }
+  </style>
+  <body>
+    <header class="header">
+      <div class="jumbotron bg-secondary text-center">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-12">
+              <h2><a class="text-light" "Transferable Adversarial Attacks on ASR">  Transferable Adversarial Attacks on ASR</h2>
+              <p>
+                <div class="row">
+                  <div class="col-md col-sm-12"><a class= "text-light" "Xiaoxue Gao">Xiaoxue Gao</a> </div>
+                  <div class="col-md col-sm-12"><a class= "text-light" "Zexin Li">Zexin Li</a> </div>
+                  <div class="col-md col-sm-12"><a class= "text-light" "Yiming Chen">Yiming Chen</a> </div>
+                  <div class="col-md col-sm-12"><a class= "text-light" "Cong Liu">Cong Liu</a> </div>
+                  <div class="col-md col-sm-12"><a class= "text-light" "Haizhou Li">Haizhou Li</a> </div>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row" id="result">
+          <div class="col-md-12">
+            <figure>
+              <img src="ICASSP.png" alt="Trulli" style="width:100%">
+              <figcaption>Fig.1. The overview network architecture of the proposed three transferable attacks (1) Speech-aware gradient optimization (SAGO) (2) MI-FGSM and (3) VMI-FGSM.</figcaption>
+            </figure>
+            <hr>
+            <h2>We show the audio samples, transcription outputs and transcription performances (WER) of the following attack approaches.</h2>
+            <hr>
+            <p><strong>Clean</strong>  : Original clean audios from the datasets.</a></p> 
+            <p><strong>White Noise</strong>  : Random white noise (naive baseline) are added to clean audios for decoding.</a></p> 
+            <p><strong>PGD</strong>  : Advasarial samples are generated from projected gradient desent attack method (the strong baseline).</a></p>
+            <p><strong>SAGO</strong>  : Advasarial samples are generated from the proposed speech-aware gradient optimization (SAGO) attack.</a></p>
+            <p><strong>MI-FGSM</strong>  : Advasarial samples are generated from the proposed momentum iterative fast gradient sign method (MI-FGSM).</a></p>
+            <p><strong>VMI-FGSM</strong>  : Advasarial samples are generated from the proposed variance tuning momentum iterative fast gradient sign method (VMI-FGSM).</a></p>
+            <hr>
+            <h2>Decoded Examples from Different Attack Approaches</h2>
+            <hr>
+            <h5><small><strong>Example 1 </strong></small></h4>
+            <h5><small><strong>Reference: so uncas you had better take the lead while i will put on the skin again and trust to cunning for want of speed.</strong></small></h5>
+            <h5><small><strong>White Noise Hypothesis (WER 0.00 %)</strong>: so uncas you had better take the lead while i will put on the skin again and trust to cunning for want of speed.</small></h5>
+            <h5><small><strong>PGD Hypothesis (WER 0.00 %)</strong>: so uncas you had better take the lead while i will put on the skin again and trust to cunning for want of speed.</small></h5>
+            <h5><small><strong>SAGO Hypothesis (WER 50.00 %)</strong>: so uncas be it better take to leave that the fire would put on this gid again and trust depending for want of speed.</small></h5>
+            <h5><small><strong>MI-FGSM Hypothesis (WER 41.67 %)</strong>: and so one couldst be a better take to leave while i would put on the skin again and trust to cunning of her want of speed.</small></h5>
+            <h5><small><strong>VMI-FGSM Hypothesis (WER 41.67%)</strong>: so when 1st you had better take to leave for i will put on the skin again and trust you cunning for one to sweep with.</small></h5>
+            <div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Clean</th>
+                    <th>White Noise</th>
+                    <th>PGD</th>
+                    <th>SAGO</th>
+                    <th>MI-FGSM</th>    
+                    <th>VMI-FGSM</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Samples</th>
+                    <td>
+                      <audio controls>
+                        <source src="./clean/ori_103.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./whitenoise/ori_103.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./pgd/adv_103.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./sago/adv_103.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                      <td>
+                      <audio controls>
+                        <source src="./mi/adv_103.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./vmi/adv_103.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <hr>
+            <h5><small><strong>Example 2 </strong></small></h4>
+            <h5><small><strong>Reference: but in this friendly pressure raoul could detect the nervous agitation of a great internal conflict. </strong></small></h5>
+            <h5><small><strong>White Noise Hypothesis (WER 0.00 %)</strong>: but in this friendly pressure raoul could detect the nervous agitation of a great internal conflict.</small></h5>
+            <h5><small><strong>PGD Hypothesis (WER 43.74 %)</strong>: while in this friendly treasure raoul could detect a nervous agitation out of great internocondland.</small></h5>
+            <h5><small><strong>SAGO Hypothesis (WER 81.25%)</strong>: by amos friendly cardinal robbed with the technine nervous agitation out of dray into no conduined.</small></h5>
+            <h5><small><strong>MI-FGSM Hypothesis (WER 75.00 %)</strong>: by in this ranly treasure robbed with detecting nervous agitation out of gray internal pond life.</small></h5>
+            <h5><small><strong>VMI-FGSM Hypothesis (WER 81.25 %)</strong>: but in the friendly creature ralph could detect being merely is education at her grave interlook on link.</small></h5>
+            <div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Clean</th>
+                    <th>White Noise</th>
+                    <th>PGD</th>
+                    <th>SAGO</th>
+                    <th>MI-FGSM</th>    
+                    <th>VMI-FGSM</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Samples</th>
+                    <td>
+                      <audio controls>
+                        <source src="./clean/ori_17.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./whitenoise/ori_17.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./pgd/adv_17.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./sago/adv_17.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                      <td>
+                      <audio controls>
+                        <source src="./mi/adv_17.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./vmi/adv_17.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <hr>
+            <h5><small><strong>Example 3 </strong></small></h4>
+            <h5><small><strong>Reference: i thought we were stumped again when i 1st saw that picture but it has been of some use after all.</strong></small></h5>
+            <h5><small><strong>White Noise Hypothesis (WER 0.00 %)</strong>: i thought we were stumped again when i 1st saw that picture but it has been of some use after all. </small></h5>
+            <h5><small><strong>PGD Hypothesis (WER 33.33 %)</strong>: i thought we were stumped again when i 1st saw that fiction of bennett and a snail of some native after all.</small></h5>
+            <h5><small><strong>SAGO Hypothesis (WER 76.19 %)</strong>: i thought we were stumpy getting and i 1st was all that vexioner the vedder and it would have sung me to fantaker wall.</small></h5>
+            <h5><small><strong>MI-FGSM Hypothesis (WER 66.67 %)</strong>: i thought we were something having in my 1st saw map pension or credit spend of some need of fast parov.</small></h5>
+            <h5><small><strong>VMI-FGSM Hypothesis (WER 52.38 %)</strong>: i thought we were something in then if you saw that bachelor betting a stand of some needes after all.</small></h5>
+            <div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Clean</th>
+                    <th>White Noise</th>
+                    <th>PGD</th>
+                    <th>SAGO</th>
+                    <th>MI-FGSM</th>    
+                    <th>VMI-FGSM</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Samples</th>
+                    <td>
+                      <audio controls>
+                        <source src="./clean/ori_29.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./whitenoise/ori_29.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./pgd/adv_29.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./sago/adv_29.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                      <td>
+                      <audio controls>
+                        <source src="./mi/adv_29.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./vmi/adv_29.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <hr>
+            <h5><small><strong>Example 4 </strong></small></h4>
+            <h5><small><strong>Reference: i say you do know what this means and you must tell us.</strong></small></h5>
+            <h5><small><strong>White Noise Hypothesis (WER 0.00 %)</strong>: i say you do know what this means and you must tell us.</small></h5>
+            <h5><small><strong>PGD Hypothesis (WER 15.38 %)</strong>: i said you do know what this means and you must tell us good.</small></h5>
+            <h5><small><strong>SAGO Hypothesis (WER 69.23 %)</strong>: i say you do know what bess me losing eh give mars a towel after.</small></h5>
+            <h5><small><strong>MI-FGSM Hypothesis (WER 53.85 %)</strong>: i say you am clearer wi this minx ere you must halves.</small></h5>
+            <h5><small><strong>VMI-FGSM Hypothesis (WER 30.77 %)</strong>: i said you do know what this realist ere do you must tell us.</small></h5>
+            <div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Clean</th>
+                    <th>White Noise</th>
+                    <th>PGD</th>
+                    <th>SAGO</th>
+                    <th>MI-FGSM</th>    
+                    <th>VMI-FGSM</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Samples</th>
+                    <td>
+                      <audio controls>
+                        <source src="./clean/ori_70.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./whitenoise/ori_70.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./pgd/adv_70.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./sago/adv_70.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                      <td>
+                      <audio controls>
+                        <source src="./mi/adv_70.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./vmi/adv_70.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <hr>
+            <h5><small><strong>Example 5 </strong></small></h4>
+            <h5><small><strong>Reference: for some time after that i remembered nothing distinctly.</strong></small></h5>
+            <h5><small><strong>White Noise Hypothesis (WER 0.00 %)</strong>: for some time after that i remembered nothing distinctly.</small></h5>
+            <h5><small><strong>PGD Hypothesis (WER 11.11 %)</strong>: for some time after that i remembered nothing disdainfully.</small></h5>
+            <h5><small><strong>SAGO Hypothesis (WER 44.44 %)</strong>: and for some time after that i remembered when nothing is daintily.</small></h5>
+            <h5><small><strong>MI-FGSM Hypothesis (WER 44.44 %)</strong>: for some time after that i remembered nothing to stay with me.</small></h5>
+            <h5><small><strong>VMI-FGSM Hypothesis (WER 44.44%)</strong>: for some time after that i remember nothing of his dignity.</small></h5>
+            <div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Clean</th>
+                    <th>White Noise</th>
+                    <th>PGD</th>
+                    <th>SAGO</th>
+                    <th>MI-FGSM</th>    
+                    <th>VMI-FGSM</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Samples</th>
+                    <td>
+                      <audio controls>
+                        <source src="./clean/ori_77.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./whitenoise/ori_77.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./pgd/adv_77.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./sago/adv_77.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                      <td>
+                      <audio controls>
+                        <source src="./mi/adv_77.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./vmi/adv_77.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <hr>
+            <h5><small><strong>Example 6 </strong></small></h4>
+            <h5><small><strong>Reference: the delawares are children of the tortoise and they outstrip the deer.</strong></small></h5>
+            <h5><small><strong>White Noise Hypothesis (WER 0.00 %)</strong>: the delawares are children of the tortoise and they out strip the deer.</small></h5>
+            <h5><small><strong>PGD Hypothesis (WER 41.67 %)</strong>: the delawares are children in the tortoise and ants drifted youth.</small></h5>
+            <h5><small><strong>SAGO Hypothesis (WER 75.00 %)</strong>: the delawares i have children in the northern savoyance drift in youth.</small></h5>
+            <h5><small><strong>MI-FGSM Hypothesis (WER 83.33 %)</strong>: a delaware as i children of the torres announced drifted youth.</small></h5>
+            <h5><small><strong>VMI-FGSM Hypothesis (WER 66.67 %)</strong>: but delawares our children of the tortuous amounts drifted here.</small></h5>
+            <div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Clean</th>
+                    <th>White Noise</th>
+                    <th>PGD</th>
+                    <th>SAGO</th>
+                    <th>MI-FGSM</th>    
+                    <th>VMI-FGSM</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Samples</th>
+                    <td>
+                      <audio controls>
+                        <source src="./clean/ori_100.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./whitenoise/ori_100.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./pgd/adv_100.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./sago/adv_100.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                      <td>
+                      <audio controls>
+                        <source src="./mi/adv_100.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                    <td>
+                      <audio controls>
+                        <source src="./vmi/adv_100.wav" type="audio/wav" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            <div>
+          </div>
+      </div>
+        <hr>
+      </div>
+    </main>
+    <footer class="bg-secondary text-light mt-4 pt-3 pb-2 " >
+      <div class="container">
+        <p class="text-center">
+          <small>
+            <br>
+            Transferable Adversarial Attacks against ASR (under review in IEEE Signal Processing Letters)
+            <br>
+            <a class="text-light"><strong>Xiaoxue Gao</strong></a> | xiaoxue.gao@u.nus.edu
+          </small>
+        </p>
+      </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
