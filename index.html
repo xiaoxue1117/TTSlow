@@ -58,11 +58,11 @@
             <h2>We show the audio samples, adversarial text samples, the number of frames for the synthesized speech samples and attack success rate (ASR) of the following attack approaches.</h2>
             <hr>
             <p><strong>Clean</strong>  : Original clean audios from the datasets.</a></p> 
-            <p><strong>White Noise</strong>  : Random white noise (naive baseline) are added to clean audios for decoding.</a></p> 
-            <p><strong>PGD</strong>  : Advasarial samples are generated from projected gradient desent attack method (the strong baseline).</a></p>
-            <p><strong>SAGO</strong>  : Advasarial samples are generated from the proposed speech-aware gradient optimization (SAGO) attack.</a></p>
-            <p><strong>MI-FGSM</strong>  : Advasarial samples are generated from the proposed momentum iterative fast gradient sign method (MI-FGSM).</a></p>
-            <p><strong>VMI-FGSM</strong>  : Advasarial samples are generated from the proposed variance tuning momentum iterative fast gradient sign method (VMI-FGSM).</a></p>
+            <p><strong>Text Baseline</strong>  : Advasarial samples are generated from speaker baseline with speaker embedding input unchanged.</a></p> 
+            <p><strong>Speaker Baseline</strong>  : Advasarial samples are generated from speaker baseline with text unchanged.</a></p>
+            <p><strong>TTSlow-spk (l2)</strong>  : Advasarial samples are generated from the proposed TTSlow-spk (l2).</a></p>
+            <p><strong>TTSlow-spk (linf)</strong>  : Advasarial samples are generated from the proposed TTSlow-spk (linf).</a></p>
+            <p><strong>TTSlow-text</strong>  : Advasarial samples are generated from the proposed TTSlow-text.</a></p>
             <hr>
             <h2>Decoded Examples from Different Attack Approaches</h2>
             <hr>
